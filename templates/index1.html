@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DOM تاسك</title>
+  <style>
+    body {
+      text-align: center;
+      background-color: #1b1b1b;
+      color: white;
+      font-family: 'Cairo', sans-serif;
+      padding-top: 50px;
+    }
+    img {
+      width: 250px;
+      height: 65%;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      background-color: hotpink;
+      color: white;
+      cursor: pointer;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(204, 195, 199, 0.521);
+      transition: all 0.9s ease;
+      }
+
+      button:hover {
+        background-color: rgb(124, 6, 67);
+        transform: scale(1.05);
+      }
+  </style>
+</head>
+<body>
+  <h1 id="lText"> 💘 CIS 💘 </h1>
+  <img id="lImage" src="{{ url_for('static', filename='images/Wh.jpg') }}"  alt="المتصفح لايدعم هذه الصورة " />
+  <br />
+  <button onclick="changeLove()">     متى بدء ومتى ينتهي الدبلوم  </button>
+  <br>
+  <button onclick="makeBig()">كبّري الصورة</button>
+  <script>
+    let imgbig = false;
+    function makeBig() {
+      let nimg = document.getElementById("lImage");
+      if (!imgbig){
+         nimg.style.transform = "scale(1.5)";
+         nimg.style.transition = "0.5s";
+         imgbig = true;
+         }
+        else {
+           nimg.style.transform = "scale(1)";
+           nimg.style.transition = "all 0.3s ease";
+           imgbig = false;
+             }
+      
+  
+    }
+    function changeLove() {
+      document.getElementById("lText").innerHTML = "    💘    بدء 15-8-2024 💞  '<br>'      💞  وسينتهي 1-6-2025  💘  ";
+      document.getElementById("lImage").src = "{{ url_for('static', filename='images/p4.jpg') }}";
+    }
+  </script>
+</body>
+</html>
